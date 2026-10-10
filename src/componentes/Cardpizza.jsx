@@ -17,7 +17,7 @@ function CardPizza({ name, price, ingredients, img }) {
 
         <ul>
           {ingredients.map((ingrediente) => (
-            <li key={ingrediente}>🍕 {ingrediente}</li>
+            <li key={ingrediente}>{ingrediente}</li>
           ))}
         </ul>
 
