@@ -2,7 +2,7 @@
 
 Aplicación web:
 
-Formulario de registro
+Carrito de compras.
 
 Tecnologías utilizadas
 
