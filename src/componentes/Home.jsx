@@ -1,9 +1,17 @@
 import Header from "./header";
 import Cardpizza from "./Cardpizza";
 import Footer from "./footer";
-import { pizzas } from "../pizzas"; 
+import { useState, useEffect } from "react";
 
 function Home() {
+
+  const [pizzas, setPizzas] = useState([]);
+    useEffect(() => {
+    fetch("https://pizzeria-backend-czr3.onrender.com/api/pizzas"))
+    .then((response) => response.json())
+    .then((data) => setPizzas(data));
+      }, []);
+
   return (
     <>
       <Header />

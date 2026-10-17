@@ -1,17 +1,21 @@
+
 import Navbar from "./componentes/Navbar";
 //import Home from "./componentes/Home";
-//import Register from "./componentes/Register";
-import Cart from "./componentes/Cart";
-
+import Pizza from "./componentes/pizzas.jsx";
+import Footer from "./componentes/footer";
 
 function App() {
   return (
     <>
-
       <Navbar />
 
-      <Cart />
+      
+      <Pizza />
 
+      
+      
+
+      <Footer />
     </>
   );
 }

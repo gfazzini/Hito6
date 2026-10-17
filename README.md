@@ -1,9 +1,5 @@
 
 
-Aplicación web:
-
-Carrito de compras.
-
 Tecnologías utilizadas
 
 - React
@@ -37,3 +33,5 @@ src/
 https://gfazzini.github.io/hito1/
 https://gfazzini.github.io/hito2/ 
 https://gfazzini.github.io/hito3/   
+https://gfazzini.github.io/hito4/
+
