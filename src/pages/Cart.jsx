@@ -1,9 +1,8 @@
-
-import { useState } from "react";
-import { pizzaCart } from "../pizzas";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext.jsx";
 
 function Cart() {
-  const [cart, setCart] = useState(pizzaCart);
+  const { cart, setCart } = useContext(CartContext);
 
   const aumentar = (id) => {
     setCart((cartActual) =>
@@ -36,51 +35,71 @@ function Cart() {
     <div className="container my-4">
       <h2>Detalles del pedido:</h2>
 
-      {cart.map((pizza) => (
-        <div key={pizza.id} className="mb-4">
-          <img
-            src={pizza.img}
-            alt={pizza.name}
-            width="120"
-          />
+      {cart.length === 0 ? (
+        <p>Tu carrito está vacío 🍕</p>
+      ) : (
+        cart.map((pizza) => (
+          <div
+            key={pizza.id}
+            className="d-flex align-items-center gap-3 border-bottom py-3 flex-wrap"
+          >
+            <img
+              src={pizza.img}
+              alt={pizza.name}
+              width="120"
+              style={{
+                height: "90px",
+                objectFit: "cover",
+                borderRadius: "8px",
+              }}
+            />
 
-          <h3>{pizza.name}</h3>
+            <div className="flex-grow-1">
+              <h3>{pizza.name}</h3>
+              <p className="mb-1">
+                Precio: ${pizza.price.toLocaleString("es-CL")}
+              </p>
+              <p className="mb-0">
+                Subtotal: $
+                {(pizza.price * pizza.count).toLocaleString("es-CL")}
+              </p>
+            </div>
 
-          <p>
-            Precio: ${pizza.price.toLocaleString("es-CL")}
-          </p>
+            <div className="d-flex align-items-center gap-2">
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => disminuir(pizza.id)}
+                aria-label={`Disminuir cantidad de ${pizza.name}`}
+              >
+                −
+              </button>
 
-          <div className="d-flex align-items-center gap-2 mb-3">
-            <button
-              className="btn btn-outline-danger"
-              onClick={() => disminuir(pizza.id)}
-            >
-              −
-            </button>
+              <span>{pizza.count}</span>
 
-            <span>{pizza.count}</span>
-
-            <button
-              className="btn btn-outline-primary"
-              onClick={() => aumentar(pizza.id)}
-            >
-              +
-            </button>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => aumentar(pizza.id)}
+                aria-label={`Aumentar cantidad de ${pizza.name}`}
+              >
+                +
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
 
       <h3 className="mt-4">
         Total: ${total.toLocaleString("es-CL")}
       </h3>
 
-    <button className="btn btn-success mt-3">
+      <button
+        className="btn btn-success mt-3"
+        disabled={cart.length === 0}
+      >
         Pagar
-    </button>
-
+      </button>
     </div>
   );
 }
 
 export default Cart;
-

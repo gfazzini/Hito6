@@ -8,13 +8,13 @@ import Cart from "./pages/Cart";
 import Pizza from "./pages/Pizzas";
 import Profile from "./pages/profile";
 import NotFound from "./pages/notfound";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Navbar />
 
-      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -25,7 +25,7 @@ function App() {
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 

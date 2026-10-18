@@ -1,18 +1,9 @@
-
 import Header from "../componentes/Header";
 import Cardpizza from "../componentes/Cardpizza";
 import Footer from "../componentes/footer";
-import { useState, useEffect } from "react";
+import { pizzas } from "../pizzas";
 
 function Home() {
-  const [pizzas, setPizzas] = useState([]);
-
-  useEffect(() => {
-    fetch("https://pizzeria-backend-czr3.onrender.com/api/pizzas")
-      .then((response) => response.json())
-      .then((data) => setPizzas(data));
-  }, []);
-
   return (
     <>
       <Header />
@@ -21,6 +12,7 @@ function Home() {
         {pizzas.map((pizza) => (
           <Cardpizza
             key={pizza.id}
+            id={pizza.id}
             name={pizza.name}
             img={pizza.img}
             price={pizza.price}

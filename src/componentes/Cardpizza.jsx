@@ -1,12 +1,43 @@
-function CardPizza({ name, price, ingredients, img }) {
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
+
+function CardPizza({ id, name, price, ingredients, img }) {
+  const { cart, setCart } = useContext(CartContext);
+
+  const agregarAlCarrito = () => {
+    const pizzaExistente = cart.find((pizza) => pizza.id === id);
+
+    if (pizzaExistente) {
+      const carritoActualizado = cart.map((pizza) =>
+        pizza.id === id
+          ? { ...pizza, count: pizza.count + 1 }
+          : pizza
+      );
+
+      setCart(carritoActualizado);
+    } else {
+      const nuevaPizza = {
+        id,
+        name,
+        price,
+        ingredients,
+        img,
+        count: 1,
+      };
+
+      setCart([...cart, nuevaPizza]);
+    }
+  };
+
   return (
     <div className="card m-3" style={{ width: "18rem" }}>
-    <img
+      <img
         src={img}
         className="card-img-top"
         alt={name}
         style={{ height: "220px", objectFit: "cover" }}
-    />
+      />
 
       <div className="card-body">
         <h5 className="card-title">Pizza {name}</h5>
@@ -28,11 +59,17 @@ function CardPizza({ name, price, ingredients, img }) {
         </h4>
 
         <div className="d-flex justify-content-between">
-          <button className="btn btn-outline-dark">
+          <Link
+            to={`/pizza/${id}`}
+            className="btn btn-outline-dark"
+          >
             Ver Más 👀
-          </button>
+          </Link>
 
-          <button className="btn btn-dark">
+          <button
+            className="btn btn-dark"
+            onClick={agregarAlCarrito}
+          >
             Añadir 🛒
           </button>
         </div>
