@@ -1,11 +1,10 @@
-
 import { useState, useEffect } from "react";
 
 function Pizza() {
   const [pizza, setPizza] = useState(null);
 
   useEffect(() => {
-    fetch("https://pizzeria-backend-czr3.onrender.com/api/pizzas/p001"))
+    fetch("https://pizzeria-backend-czr3.onrender.com/api/pizzas/p001")
       .then((response) => response.json())
       .then((data) => {
         console.log("Respuesta de la API:", data);
@@ -22,10 +21,10 @@ function Pizza() {
     <div className="container my-4">
       <div className="card mx-auto" style={{ maxWidth: "700px" }}>
         <img
-                src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=800"
-                className="card-img-top"
-                alt={pizza.name}
-                style={{ width: "100%", height: "300px", objectFit: "cover" }}
+          src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=800"
+          className="card-img-top"
+          alt={pizza.name}
+          style={{ width: "100%", height: "300px", objectFit: "cover" }}
         />
 
         <div className="card-body">
@@ -53,4 +52,3 @@ function Pizza() {
 }
 
 export default Pizza;
-
