@@ -1,10 +1,9 @@
-# 🍕 Pizzería Mamma Mia — Hito 5
+Pizzería Mamma Mia — Hito 6
 
-Proyecto desarrollado con React y Vite para el desafío de Desafío Latam. En este hito se implementa la navegación entre páginas utilizando React Router.
+Proyecto desarrollado con React y Vite para el desafío de Desafío Latam. En este hito se implementa un carrito de compras utilizando React Context API, permitiendo compartir el estado del carrito entre los distintos componentes de la aplicación.
 
-## 📁 Estructura del proyecto
+📁 Estructura del proyecto
 
-```text
 pizzeria-mamma-mia/
 ├── public/
 │   ├── favicon.svg
@@ -20,6 +19,8 @@ pizzeria-mamma-mia/
 │   │   ├── Header.jsx
 │   │   ├── Navbar.jsx
 │   │   └── footer.jsx
+│   ├── context/
+│   │   └── CartContext.jsx
 │   ├── pages/
 │   │   ├── Cart.jsx
 │   │   ├── Home.jsx
@@ -39,54 +40,24 @@ pizzeria-mamma-mia/
 ├── vite.config.js
 ├── eslint.config.js
 └── README.md
-```
 
 ## 🛠️ Tecnologías utilizadas
 
 - React
 - Vite
 - React Router DOM
-- Bootstrap
+- React Context API
 - JavaScript
+- Bootstrap
 - CSS
 
-## 🧭 Rutas implementadas
+👩‍💻 Desarrollado por
 
-- `/` — Página principal.
-- `/register` — Registro de usuario.
-- `/login` — Inicio de sesión.
-- `/cart` — Carrito de compras.
-- `/pizza/p001` — Detalle de una pizza.
-- `/profile` — Perfil de usuario.
-- `/404` — Página no encontrada.
-- Ruta comodín (`*`) — Muestra la página de error para rutas inexistentes.
-
-## Cómo ejecutar el proyecto
-
-1. Instalar las dependencias:
-
-   ```bash
-   npm install
-   ```
-
-2. Iniciar el servidor de desarrollo:
-
-   ```bash
-   npm run dev
-   ```
-
-3. Abrir en el navegador la dirección local que muestra la terminal.
-
-## Desarrollado por
-
-Gabriela Fazzini  
-Desafío Latam — Hito 5
-
-
-
+Gabriela Fazzini
 
 https://gfazzini.github.io/hito1/
 https://gfazzini.github.io/hito2/ 
 https://gfazzini.github.io/hito3/   
 https://gfazzini.github.io/hito4/
+https://gfazzini.github.io/Hito6/
 
