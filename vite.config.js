@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/hito4/',
+  base: '/hito5/',
   build: {
     outDir: 'docs',
   },
