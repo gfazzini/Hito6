@@ -7,7 +7,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/hito5">
+    <BrowserRouter basename="/Hito6">
       <App />
     </BrowserRouter>
   </StrictMode>,
